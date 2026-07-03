@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinEd | Onboarding</title>
+  <link rel="stylesheet" href="assets/css/app.css" />
+  <script src="js/app-state.js" defer></script>
+  <script src="js/data/benchmarks.js" defer></script>
+  <script src="js/data/courses.js" defer></script>
+  <script src="js/engine.js" defer></script>
+  <script src="js/onboarding.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div>
+      <h1>FinEd</h1>
+      <p class="muted">Personalized financial learning for real-life situations.</p>
+    </div>
+    <nav class="top-nav">
+      <a href="index.html" class="active">Onboarding</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="progress.html">Progress</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero-card">
+      <h2>Start with a short assessment</h2>
+      <p>
+        We’ll build a personal learning path from your knowledge, habits, goals, and local context.
+        The flow is designed to stay focused and avoid overwhelming you.
+      </p>
+      <div class="stepper" id="stepper">
+        <span class="step active">1. Account</span>
+        <span class="step">2. Quiz</span>
+        <span class="step">3. Habits</span>
+        <span class="step">4. Goals</span>
+        <span class="step">5. Location</span>
+        <span class="step">6. Review</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <form id="onboardingForm" novalidate>
+        <div class="form-step active" data-step="0">
+          <h3>Account</h3>
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" type="text" placeholder="Your name" required />
+            <div class="error" id="nameError" aria-live="polite"></div>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="you@example.com" required />
+            <div class="error" id="emailError" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <div class="form-step" data-step="1">
+          <h3>Financial knowledge quiz</h3>
+          <div class="quiz-item">
+            <label>1. What is an emergency fund for?</label>
+            <select id="q1" required>
+              <option value="">Select one</option>
+              <option value="a">Vacation spending</option>
+              <option value="b">Unexpected expenses</option>
+              <option value="c">Investing only</option>
+            </select>
+          </div>
+          <div class="quiz-item">
+            <label>2. Paying only minimum credit card payments usually...</label>
+            <select id="q2" required>
+              <option value="">Select one</option>
+              <option value="a">Reduces debt fastest</option>
+              <option value="b">Can increase interest paid</option>
+              <option value="c">Removes all fees</option>
+            </select>
+          </div>
+          <div class="quiz-item">
+            <label>3. A budget helps you...</label>
+            <select id="q3" required>
+              <option value="">Select one</option>
+              <option value="a">Track money decisions</option>
+              <option value="b">Avoid all spending forever</option>
+              <option value="c">Replace income</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-step" data-step="2">
+          <h3>Habits and vulnerability</h3>
+          <div class="field">
+            <label for="bills">Do you struggle to pay bills on time?</label>
+            <select id="bills" required>
+              <option value="">Select one</option>
+              <option value="0">No</option>
+              <option value="1">Sometimes</option>
+              <option value="2">Often</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="emergencyFund">Do you have a 3 month emergency fund?</label>
+            <select id="emergencyFund" required>
+              <option value="">Select one</option>
+              <option value="0">Yes</option>
+              <option value="1">Partial</option>
+              <option value="2">No</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="overspending">Do you spend more than planned?</label>
+            <select id="overspending" required>
+              <option value="">Select one</option>
+              <option value="0">Rarely</option>
+              <option value="1">Sometimes</option>
+              <option value="2">Often</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="overdrafts">Have you overdrafted or had insufficient funds?</label>
+            <select id="overdrafts" required>
+              <option value="">Select one</option>
+              <option value="0">Never</option>
+              <option value="1">Once or twice</option>
+              <option value="2">Several times</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="borrowing">Have you used high-cost or predatory borrowing?</label>
+            <select id="borrowing" required>
+              <option value="">Select one</option>
+              <option value="0">No</option>
+              <option value="1">Maybe</option>
+              <option value="2">Yes</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-step" data-step="3">
+          <h3>Goals and preferences</h3>
+          <div class="field">
+            <label for="incomeBand">Income band</label>
+            <select id="incomeBand" required>
+              <option value="">Select one</option>
+              <option value="under35000">Under $35,000</option>
+              <option value="middle">$35,000 to $99,999</option>
+              <option value="100000plus">$100,000+</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="goal">Primary goal</label>
+            <select id="goal" required>
+              <option value="">Select one</option>
+              <option value="emergency-fund">Build emergency fund</option>
+              <option value="budgeting">Get control of monthly spending</option>
+              <option value="debt">Pay down debt</option>
+              <option value="savings">Save for a goal</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="learningStyle">Learning style</label>
+            <select id="learningStyle" required>
+              <option value="">Select one</option>
+              <option value="short">Short lessons</option>
+              <option value="visual">Visual examples</option>
+              <option value="guided">Step by step</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="confidence">How confident do you feel about money topics?</label>
+            <input id="confidence" type="range" min="1" max="5" value="3" />
+            <div class="muted">1 = not confident, 5 = very confident</div>
+          </div>
+        </div>
+
+        <div class="form-step" data-step="4">
+          <h3>Location and optional context</h3>
+          <div class="field">
+            <label for="state">State</label>
+            <input id="state" type="text" maxlength="2" placeholder="CA" required />
+            <div class="error" id="stateError" aria-live="polite"></div>
+          </div>
+          <div class="field">
+            <label for="zip">ZIP code</label>
+            <input id="zip" type="text" maxlength="10" placeholder="95112" />
+          </div>
+          <div class="field">
+            <label for="household">Household type</label>
+            <select id="household">
+              <option value="">Prefer not to say</option>
+              <option value="single">Single adult</option>
+              <option value="family">Family</option>
+              <option value="student">Student</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="immigration">Immigration status context</label>
+            <select id="immigration">
+              <option value="">Prefer not to say</option>
+              <option value="new-immigrant-family">New immigrant family</option>
+              <option value="mixed-status">Mixed-status household</option>
+              <option value="none">Not applicable</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="community">Sub-community</label>
+            <input id="community" type="text" placeholder="Optional self-described community" />
+          </div>
+        </div>
+
+        <div class="form-step" data-step="5">
+          <h3>Review</h3>
+          <div id="reviewBox" class="review-box"></div>
+          <p class="muted">
+            You can edit any step before submitting. Sensitive fields are optional and can be skipped.
+          </p>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" id="backBtn" class="secondary">Back</button>
+          <button type="button" id="nextBtn" class="primary">Next</button>
+          <button type="submit" id="submitBtn" class="primary hidden">Create profile</button>
+          <button type="button" id="resetBtn" class="ghost">Reset</button>
+        </div>
+
+        <div id="formMessage" class="message" aria-live="assertive"></div>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

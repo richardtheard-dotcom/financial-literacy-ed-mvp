@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinEd | Progress</title>
+  <link rel="stylesheet" href="assets/css/app.css" />
+  <script src="js/app-state.js" defer></script>
+  <script src="js/data/courses.js" defer></script>
+  <script src="js/progress.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div>
+      <h1>FinEd</h1>
+      <p class="muted">Track learning and streaks.</p>
+    </div>
+    <nav class="top-nav">
+      <a href="index.html">Onboarding</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="progress.html" class="active">Progress</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="grid-2">
+      <div class="card">
+        <h3>Streak</h3>
+        <p id="streakValue" class="big-number"></p>
+        <p id="streakMessage" class="muted"></p>
+      </div>
+      <div class="card">
+        <h3>Learning status</h3>
+        <p id="completionValue" class="big-number"></p>
+        <p id="nextUnlock" class="muted"></p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Completed courses</h3>
+      <ul id="completedList" class="list"></ul>
+    </section>
+
+    <section class="card">
+      <h3>Re-assessment</h3>
+      <p class="muted">Update your profile whenever your situation changes.</p>
+      <button id="reassessBtn" class="primary">Start reassessment</button>
+      <button id="clearBtn" class="secondary">Clear all saved data</button>
+      <div id="progressMessage" class="message" aria-live="assertive"></div>
+    </section>
+  </main>
+</body>
+</html>

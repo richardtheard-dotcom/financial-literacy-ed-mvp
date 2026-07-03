@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinEd | Course</title>
+  <link rel="stylesheet" href="assets/css/app.css" />
+  <script src="js/app-state.js" defer></script>
+  <script src="js/data/courses.js" defer></script>
+  <script src="js/course.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div>
+      <h1>FinEd</h1>
+      <p class="muted">Lesson player.</p>
+    </div>
+    <nav class="top-nav">
+      <a href="index.html">Onboarding</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="progress.html">Progress</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div style="display: grid; grid-template-columns: 280px 1fr; gap: 24px; align-items: start;" id="coursePlayerLayout">
+      <!-- Sidebar Navigation -->
+      <aside class="card" style="margin-bottom: 0; padding: 20px;">
+        <h3 style="margin-top: 0; font-size: 1.2rem;">Lessons</h3>
+        <nav id="sidebarNav" style="display: flex; flex-direction: column; gap: 8px;">
+          <!-- Sidebar lesson items will be dynamically injected here -->
+        </nav>
+      </aside>
+      
+      <!-- Main Content Area -->
+      <section class="card" style="margin-bottom: 0;">
+        <h2 id="courseTitle" style="margin-top: 0;"></h2>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+          <p id="courseMeta" class="muted" style="margin: 0;"></p>
+          <div id="lessonProgressContainer" style="display: flex; align-items: center; gap: 8px;">
+            <div style="width: 100px; background: #e5e7eb; height: 8px; border-radius: 999px; overflow: hidden;">
+              <div id="progressBar" style="width: 0%; background: var(--accent); height: 100%; transition: width 0.2s;"></div>
+            </div>
+            <span id="progressText" style="font-size: 0.85rem; font-weight: bold; color: var(--muted);"></span>
+          </div>
+        </div>
+        
+        <div id="courseBody" style="min-height: 200px;"></div>
+        
+        <!-- Navigation Buttons -->
+        <div class="form-actions" style="margin-top: 24px; display: flex; justify-content: space-between; align-items: center; width: 100%;">
+          <button id="prevBtn" class="secondary">&larr; Previous</button>
+          <div style="display: flex; gap: 12px;">
+            <button id="completeBtn" class="primary">Continue</button>
+            <a id="nextCourseLink" class="secondary-link" href="dashboard.html">Back to dashboard</a>
+          </div>
+        </div>
+        
+        <div id="courseMessage" class="message hidden" aria-live="assertive"></div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinEd | Dashboard</title>
+  <link rel="stylesheet" href="assets/css/app.css" />
+  <script src="js/app-state.js" defer></script>
+  <script src="js/data/benchmarks.js" defer></script>
+  <script src="js/data/courses.js" defer></script>
+  <script src="js/engine.js" defer></script>
+  <script src="js/dashboard.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div>
+      <h1>FinEd</h1>
+      <p class="muted">Your personalized roadmap.</p>
+    </div>
+    <nav class="top-nav">
+      <a href="index.html">Onboarding</a>
+      <a href="dashboard.html" class="active">Dashboard</a>
+      <a href="progress.html">Progress</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero-card">
+      <h2 id="welcomeTitle">Welcome back</h2>
+      <p id="profileNarrative" class="lead"></p>
+      <div id="dailyBriefing" class="briefing-strip"></div>
+    </section>
+
+    <section class="grid-2">
+      <div class="card">
+        <h3>Profile signals</h3>
+        <div id="signalCards" class="signal-grid"></div>
+      </div>
+      <div class="card">
+        <h3>Local context</h3>
+        <div id="benchmarkBox" class="insight-box"></div>
+      </div>
+    </section>
+
+    <section class="card" id="courseBuilderSection">
+      <h3>Custom Course Generator</h3>
+      <p class="muted" id="builderIntro">Generate an instantly customized, multi-lesson course based on your specific goal and current situation.</p>
+      
+      <div id="questionContainer" style="margin-top: 16px;">
+        <button id="startBuilderBtn" class="primary">Start Custom Course Builder</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="section-heading">
+        <h3>Your roadmap</h3>
+        <a href="progress.html">View progress</a>
+      </div>
+      <div id="courseList" class="course-grid"></div>
+    </section>
+  </main>
+</body>
+</html>
