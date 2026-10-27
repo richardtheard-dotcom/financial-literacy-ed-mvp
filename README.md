@@ -40,3 +40,7 @@ FinEd is a personalized financial literacy platform designed to provide users wi
 The platform delivers content through interactive, multi-step lessons that include explanations, guided activities, and quizzes to reinforce learning. It also tracks user progress, course completions, and learning streaks, allowing users to monitor their development and retake assessments as their financial situations change.
 
 This application is originally built upon static HTML, CSS, and JavaScript, FinEd requires no backend or external dependencies. User information and progress are stored locally using `localStorage`, making the application lightweight, simple to deploy, and easy to maintain. Its modular design separates onboarding, recommendations, course delivery, progress tracking, and data management, providing a solid foundation for future enhancements and additional learning content.
+
+
+
+It can be deployed by : https://financial-literacy-ed-mvp.vercel.app/
